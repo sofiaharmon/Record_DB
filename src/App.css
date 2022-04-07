@@ -1,5 +1,156 @@
+
+:root {
+  /* primary color */
+  --primary: #323232;
+
+  --backgroundCol: #DBA796;
+  /* dark red */
+  --accent-1-light-3: #c46d61;
+  --accent-1-light-2: #bb584a;
+  --accent-1-light-1: #b34334;
+  --accent-1: #aa2e1d;
+  --accent-1-dark-1: #99291a;
+  --accent-1-dark-2: #882517;
+  --accent-1-dark-3: #772014;
+  /* light pink ,, probs gonna switch to grey */
+  --accent-2-light-3: #e4e4e4;
+  --accent-2-light-2:  #cccdce;
+  --accent-2-light-1:  #dcdcdc;
+  --accent-2: #d8d8d8;
+  --accent-2-dark-1: #c2c2c2;
+  --accent-2-dark-2: #adadad;
+  --accent-2-dark-3: #979797;
+  /* misc colors */
+  --white: rgb(255, 255, 255);
+  --grey: rgb(200, 200, 200);
+}
+
 .App {
   text-align: center;
+}
+
+@font-face {
+  font-family: "heading-font";
+  src: url(assets/fonts/OpenSans-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: "semi-bold-font";
+  src: url(assets/fonts/OpenSans-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: "body-font";
+  src: url(assets/fonts/OpenSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'italics-reg';
+  src: url(assets/fonts/OpenSans-Italic.ttf);
+}
+
+@font-face {
+  font-family: 'italics-bold';
+  src: url(assets/fonts/OpenSans-ExtraBoldItalic.ttf);
+}
+
+h1, h2 {
+  line-height: 1.1 !important;
+  font-family: "heading-font" !important;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  color: var(--primary);
+}
+
+h1 {
+  font-size: 2rem !important;
+}
+
+h2 {
+  font-size: 1.6rem !important;
+}
+
+* {
+  font-family: "body-font";
+  font-size: 1rem !important;
+}
+
+.masthead {
+  width: 100% !important;
+  text-align: center;
+}
+
+.ui.menu {
+  background-color: var(--backgroundCol);
+  color: var(--white);
+}
+
+.ui.menu.active.item {
+  background-color: var(--accent-1);
+  color: var(--accent-2);
+}
+
+.ui.menu.active.item {
+  background-color: var(--accent-1);
+  color: var(--accent-2);
+}
+
+.ui.button {
+  background: var(--accent-1) !important;
+  color: var(--accent-2);
+}
+
+.ui.button:hover {
+  background: var(--accent-1-dark-3) !important;
+  color: var(--accent-2);
+}
+
+.ui.active.button:hover {
+  background-color: var(--accent-1) !important;
+  background-image: none;
+  color: var(--accent-2);
+}
+
+.ui.button:active {
+  background: var(--accent-1) !important;
+  color: var(--accent-2);
+}
+
+.ui.active.button:active {
+  background-color: var(--accent-1-dark-1) !important;
+  background-image: none;
+  color: var(--accent-2);
+}
+
+.ui.button:focus {
+  background: var(--accent-1-light-1);
+  color: var(--accent-2);
+}
+
+.ui.active.button:focus {
+  background-color: var(--accent-1-light-1);
+  background-image: none;
+  color: var(--accent-2);
+}
+
+.ui.button.secondary {
+  background: var(--accent-2);
+  color: var(--white);
+}
+
+.ui.button.secondary:hover {
+  background: var(--accent-1);
+  color: var(--accent-2);
+}
+
+.ui.button.secondary:active {
+  background: var(--accent-2-dark-2);
+  color: var(--white);
+}
+
+.ui.button.secondary:focus {
+  background: var(--accent-2);
+  color: var(--accent-1);
 }
 
 .App-logo {
