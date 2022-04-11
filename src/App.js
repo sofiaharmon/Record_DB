@@ -7,7 +7,9 @@ import SearchResCell from './components/SearchResCell';
 import SideMenu from './components/SideMenu';
 import TopHeader from './components/TopHeader';
 import SearchPage from './pages/SearchPage';
-import Register from './pages/Register'
+import Register from './components/Register'
+import UsersPage from './pages/UsersPage';
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -15,7 +17,8 @@ function App() {
       <TopHeader/>]
       <Routes>
         <Route exact path='/' element={<SearchPage />} />
-        <Route path='/register' element={<Register/>}/>
+        <Route path='/register' element={<UsersPage/>}/>
+        <Route path='/login' element={<Login/>}/>
       </Routes>
     </Router>
   );

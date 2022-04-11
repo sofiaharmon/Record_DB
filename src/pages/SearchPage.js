@@ -4,11 +4,20 @@ import {
     Header,
     Segment
 } from 'semantic-ui-react'
+import gql from 'graphql-tag'
+import { useQuery } from '@apollo/client'
+
 import MainSearch from '../components/MainSearch';
 import SearchResCell from '../components/SearchResCell';
 
 // props is the img, title, quantity, artist, release date
 function SearchPage() {
+
+    const {
+        loading,
+        error,
+        data
+    } = useQuery(FETCH_RECORDS);
 
     const tempStuff = [
         {
@@ -41,26 +50,41 @@ function SearchPage() {
         <div>
             <MainSearch />
             <br />
-            <Container>
+            <Container className={loading ? 'loading' : ''}>
                 <Header as='h4'>
                     Results:
                 </Header>
-                {tempStuff.map(tmp => (
+                {console.log(error)}
+                {data ? data.getRecords.map(tmp => (
                     <div>
                         <SearchResCell
                             artist={tmp.artist}
                             title={tmp.title}
-                            year={tmp.release}
+                            price={tmp.price}
                             quantity={tmp.quantity}
+                            img={tmp.img}
                         />
                         <br />
                     </div>
-                ))}
+                )) : <p>no records</p>}
             </Container>
         </div>
     )
 
     return resPage;
 }
+
+const FETCH_RECORDS = gql`
+    {
+        getRecords {
+            title,
+            artist,
+            seller,
+            quantity,
+            price,
+            img,
+        }
+    }
+`
 
 export default SearchPage;
