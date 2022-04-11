@@ -48,7 +48,7 @@ function SearchResCell(props) {
                                     <Image
                                         floated="left"
                                         size="small"
-                                        src="https://react.semantic-ui.com/images/avatar/large/daniel.jpg"
+                                        src={props.img}
                                     />
                                 </Grid.Column>
                                 <Grid.Column>
@@ -61,7 +61,7 @@ function SearchResCell(props) {
                                     <Card.Meta>Quantity: {props.quantity}</Card.Meta>
                                 </Grid.Column>
                                 <Grid.Column>
-                                    <Card.Meta>Price: {props.year}</Card.Meta>
+                                    <Card.Meta>Price: ${props.price.toFixed(2)}</Card.Meta>
                                 </Grid.Column>
                             </Grid.Row>
                         </Grid>

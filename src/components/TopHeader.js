@@ -32,7 +32,7 @@ export default class TopHeader extends Component {
           <Menu.Item
             name='login'
             as={Link}
-            to="/"
+            to="/login"
             active={activeItem === 'login'}
             onClick={this.handleItemClick}
           />

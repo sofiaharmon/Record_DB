@@ -49,7 +49,7 @@ function MainSearch() {
                                 label="All Records"
                                 name="inStock"
                                 value="all"
-                                checked={values.inStock == 'all'}
+                                checked={values.inStock === 'all'}
                             />
                         </Form.Field>
                         <Form.Field>
@@ -58,7 +58,7 @@ function MainSearch() {
                                 label="In-Stock Only"
                                 name="inStock"
                                 value="stock"
-                                checked={values.inStock == 'stock'}
+                                checked={values.inStock === 'stock'}
                             />
                         </Form.Field>
                     </Form.Group>
