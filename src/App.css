@@ -23,6 +23,8 @@
   /* misc colors */
   --white: rgb(255, 255, 255);
   --grey: rgb(200, 200, 200);
+  --greyBackground: rgb(200, 200, 200, 0.3);
+  --background: rgb(170, 46, 29, 0.9);
 }
 
 .App {
@@ -64,10 +66,20 @@ h1, h2 {
 
 h1 {
   font-size: 2rem !important;
+  color: var(--accent-2) !important;
 }
 
 h2 {
   font-size: 1.6rem !important;
+}
+
+h3 {
+  line-height: 1.1 I !important;
+  font-family: "heading-font" !important;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  color: var(--accent-2-dark-3);
+  font-size: 1.2rem !important;
 }
 
 * {
@@ -75,24 +87,35 @@ h2 {
   font-size: 1rem !important;
 }
 
+.background-header {
+  background-color: var(--background);
+}
+
+.background-body {
+  background-color: var(--greyBackground);
+}
+
 .masthead {
   width: 100% !important;
   text-align: center;
 }
 
+.dist {
+  padding-bottom: 260px !important;
+}
+
+.color-offwhite {
+  color: var(--accent-2) !important;
+}
+
 .ui.menu {
-  background-color: var(--backgroundCol);
-  color: var(--white);
+  color: var(--white) !important;
+  padding-bottom: 20px !important;
 }
 
 .ui.menu.active.item {
-  background-color: var(--accent-1);
-  color: var(--accent-2);
-}
-
-.ui.menu.active.item {
-  background-color: var(--accent-1);
-  color: var(--accent-2);
+  background-color: var(--accent-1-light-3) !important;
+  color: var(--white) !important;
 }
 
 .ui.button {

@@ -3,36 +3,29 @@ import {
     Button,
     Form,
     Radio,
-    Input,
     Container,
     Header,
     Segment
 } from 'semantic-ui-react'
 import { useForm } from '../util/hooks';
 
-function MainSearch() {
-    // const [err, setErr] = useState({});
-    // const [submitted, setSubmitted] = useState(false);
-
-    const handleSubmitCallback = () => {
-        // TODO: form validator for errs
-        handleSubmit();
+function MainSearch(props) {
+    const handleSubmit = () => {
+        props.callback(values)
+        console.log("submitted")
     }
 
-    // TODO: diff search params?
-    const { values, onChange, onSubmit } = useForm(handleSubmitCallback, {
-        recordTitle: '',
+    const [values, setVals] = useState({
+        title: '',
         artist: '',
         seller: '',
         priceLow: '',
         priceHigh: '',
-        quantity: '',
-        inStock: ''
+        inStock: 'all'
     })
 
-    const handleSubmit = () => {
-        //TODO: query db
-        console.log("submitted")
+    const onChange = (event) => {
+        setVals({ ...values, [event.target.name]: event.target.value })
     }
 
     const mainSearch = (
@@ -41,23 +34,21 @@ function MainSearch() {
                 <Header as='h3' >
                     Record Search
                 </Header>
-                <Form>
+                <Form onSubmit={handleSubmit}>
                     <Form.Group>
                         <Form.Field>
                             <Radio
-                                onChange={onChange}
+                                onChange={() => setVals({ ...values, inStock: 'all' })}
                                 label="All Records"
                                 name="inStock"
-                                value="all"
-                                checked={values.inStock === 'all'}
+                                checked={values.inStock == 'all'}
                             />
                         </Form.Field>
                         <Form.Field>
                             <Radio
-                                onChange={onChange}
+                                onChange={() => setVals({ ...values, inStock: 'stock' })}
                                 label="In-Stock Only"
                                 name="inStock"
-                                value="stock"
                                 checked={values.inStock === 'stock'}
                             />
                         </Form.Field>
@@ -66,9 +57,9 @@ function MainSearch() {
                         <Form.Input
                             width='8'
                             label='Title'
-                            name='recordTitle'
+                            name='title'
                             onChange={onChange}
-                            value={values.recordTitle}
+                            value={values.title}
                         />
                         <Form.Input
                             width='4'
@@ -99,7 +90,10 @@ function MainSearch() {
                             value={values.seller}
                         />
                     </Form.Group>
-                    <Form.Field control={Button} onSubmit={onSubmit}>Submit</Form.Field>
+                    <Button type='submit' primary>
+                        Submit
+                    </Button>
+                    {/* <Form.Field control={Button} onSubmit={onSubmit}>Submit</Form.Field> */}
                 </Form>
             </Segment>
         </Container>

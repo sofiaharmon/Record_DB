@@ -13,7 +13,7 @@ function Register() {
         
     }
 
-    const { values, onChange, onSubmit, clearForm } = useForm(handleSubmitCallback, {
+    const { values, onChange, onSubmit } = useForm(handleSubmitCallback, {
         username: '',
         email: '',
         password: '',
@@ -104,7 +104,7 @@ const REGISTER_USER = gql`
                 confirmPassword: $confirmPassword
             }
         ) {
-            id email username createdAt token
+            id email username createdAt
         }
     }
 `
